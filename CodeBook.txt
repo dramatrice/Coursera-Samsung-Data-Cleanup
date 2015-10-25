@@ -1,0 +1,26 @@
+Study design/Data source
+========================
+
+The variables used in this data set are taken from the UCI HAR Dataset, downloaded at https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip.  
+See features_info.txt in that file for complete details about the original variables (transformations listed below).
+
+Data transformation
+===================
+The code provided performs the following data transformations.
+1.  It combines the individual data sets into one data set (includes x & y data for train and test as well as subject and activity data).
+2.  It subsets the complete data set to those columns that include "mean" or "std" in the name, minus those that contain meanFreq as those aren't true means.
+3.  It then renames the headers to be more readable
+	a. It replaces the starting t with an appended -time to those variables starting with t to make it easier to understand what "t" stands for.
+	b. It replaces the starting f with an appended -freq to those variables starting with f to make it easier to understand what "f" stands for.
+	d. It makes the names lower case
+	e. It removes the () to improve readability and reduce data confusion
+4.  It takes the mean of the remaining columns grouped by subject/activity
+
+Code Book - Additional variables created by the data transformation (the others are covered in detail in features_info.txt)
+===========================================================================================================================
+
+Two additional variables were created in this process, not covered in features_info.txt
+	a. subjects - this column indicates the id of the subject covered
+	b. activity - this column indicates the name of the activity the subject was completing at the time the data was measured
+
+
