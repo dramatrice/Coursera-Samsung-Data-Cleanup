@@ -5,6 +5,7 @@ output: html_document
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
+```{r}
 ##  This code sets the library and reads in the initial data from the 
 ##  unzipped source files 
 ##  (https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) 
@@ -90,3 +91,4 @@ finaldata <- tbl_df(alldata)
 
 groupedData <- group_by(finaldata, subjects, activity)
 groupedMean <- summarize_each(groupedData, funs(mean))
+```
